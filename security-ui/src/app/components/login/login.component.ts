@@ -1,6 +1,6 @@
 import { JsonPipe } from '@angular/common';
 import { Token } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/auth/services/login.service';
@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
     email: "",
     password: ""
   }
+  @Output() showMenu: EventEmitter<boolean> = new EventEmitter();
 
   constructor(
     private loginService: LoginService,
@@ -39,10 +40,9 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.loginService.login(this.formGroup.value).subscribe(response => {
-      var token = JSON.parse(response).token;
-      this.storage.setItem("token", token)
-      this.router.navigate(['home'])
-    })
+    this.loginService.login(this.formGroup.value)
+      .subscribe(() => {
+        this.router.navigate(['home'])
+      })
   }
 }

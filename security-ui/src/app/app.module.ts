@@ -23,15 +23,6 @@ import { UserModule } from './components/user/user.module';
     NavComponent,
     FooterComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    AuthModule,
-    UserModule
-
-  ],
-
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
@@ -44,7 +35,13 @@ import { UserModule } from './components/user/user.module';
       multi: true
     }
   ],
-  bootstrap: [AppComponent]
-
+  bootstrap: [AppComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    AuthModule,
+    UserModule
+  ]
 })
 export class AppModule { }
