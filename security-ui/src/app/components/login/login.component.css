@@ -90,8 +90,13 @@ section {
   font-size: 16px;
   color: #fff;
   text-transform: uppercase;
+  transition: 0.5s;
 }
 
 .login-form a:hover {
   color: rgb(230, 225, 225);
+  background: #0072ff;
+  padding: 5px 10px;
+  transform: translateY(-2px);
+  border-radius: 5px;
 }

@@ -13,6 +13,7 @@ import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { NavComponent } from './shared/nav/nav.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { UserModule } from './components/user/user.module';
 
 @NgModule({
   declarations: [
@@ -20,13 +21,14 @@ import { FooterComponent } from './shared/footer/footer.component';
     HomeComponent,
     SpinnerComponent,
     NavComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    AuthModule
+    AuthModule,
+    UserModule
 
   ],
 
