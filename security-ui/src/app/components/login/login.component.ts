@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   formGroup: FormGroup;
   storage: Storage;
   isError: boolean = false;
+  public signIn: string = '/assets/sign_in.svg'
   credentials: Login = {
     email: "",
     password: ""
