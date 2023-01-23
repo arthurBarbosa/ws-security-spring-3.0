@@ -46,6 +46,8 @@ section {
   border: none;
   background: rgba(255, 255, 255, 0.1);
   font-family: "Roboto Condensed", sans-serif;
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
 
 .login-form input::placeholder {
@@ -70,6 +72,7 @@ section {
   border: none;
   font-family: "Roboto Condensed", sans-serif;
   transition: 0.5s;
+  margin-top: 5px;
 }
 
 .login-form input[type="submit"] {
@@ -99,4 +102,25 @@ section {
   padding: 5px 10px;
   transform: translateY(-2px);
   border-radius: 5px;
+}
+.login-failed {
+  text-align: center;
+  margin: auto;
+  margin-top: 10px;
+  border: 2px solid black;
+  width: 65%;
+  border-radius: 5px;
+  background-color: red;
+}
+
+.login-failed-text {
+  text-align: center;
+  margin-top: 5px;
+  font-weight: bold;
+  color: aliceblue;
+  font-size: 10px;
+}
+
+.alert {
+  padding: 0 10px;
 }

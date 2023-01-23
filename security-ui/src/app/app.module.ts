@@ -42,6 +42,7 @@ import { UserModule } from './components/user/user.module';
     FormsModule,
     AuthModule,
     UserModule
-  ]
+  ],
+  exports: []
 })
 export class AppModule { }

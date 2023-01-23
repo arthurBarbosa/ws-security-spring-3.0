@@ -1,3 +1,8 @@
 .btn {
   margin-top: 10px;
 }
+
+.alert {
+  padding: 0 10px;
+  top: 1px;
+}

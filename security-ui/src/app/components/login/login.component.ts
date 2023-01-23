@@ -3,6 +3,7 @@ import { Token } from '@angular/compiler';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { throwError } from 'rxjs';
 import { LoginService } from 'src/app/auth/services/login.service';
 import { Login } from 'src/app/shared/models/login.model';
 import { LoaderService } from 'src/app/shared/spinner/loader.service';
@@ -15,6 +16,7 @@ import { LoaderService } from 'src/app/shared/spinner/loader.service';
 export class LoginComponent implements OnInit {
   formGroup: FormGroup;
   storage: Storage;
+  isError: boolean = false;
   credentials: Login = {
     email: "",
     password: ""
@@ -42,7 +44,12 @@ export class LoginComponent implements OnInit {
   login() {
     this.loginService.login(this.formGroup.value)
       .subscribe(() => {
+        this.isError = false;
         this.router.navigate(['home'])
-      })
+      }, error => {
+        this.isError = true;
+        throwError(error);
+      });
+
   }
 }

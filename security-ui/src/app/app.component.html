@@ -1,10 +1,2 @@
-<div *ngIf="showMenu">
-  <app-nav></app-nav>
-  <app-footer></app-footer>
-
-</div>
-
-
-<div *ngIf="!showMenu">
-  <app-login></app-login>
-</div>
+<app-nav *ngIf="showMenu"></app-nav>
+<router-outlet></router-outlet>

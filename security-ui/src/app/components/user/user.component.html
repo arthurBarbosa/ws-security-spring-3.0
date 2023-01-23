@@ -4,18 +4,30 @@
     <div class="form-group">
       <label for="firstname">Firstname:</label>
       <input type="text" class="form-control" id="firstname" formControlName="firstname">
+      <span class="alert alert-danger" *ngIf="!formGroup.get('firstname')?.valid && formGroup.get('firstname')?.touched">
+        Please provide a valid firstname
+      </span>
     </div>
     <div class="form-group">
       <label for="lastname">Lastname:</label>
       <input type="text" class="form-control" id="lastname" formControlName="lastname">
+      <span class="alert alert-danger" *ngIf="!formGroup.get('lastname')?.valid && formGroup.get('lastname')?.touched">
+        Please provide a valid lastname
+      </span>
     </div>
     <div class="form-group">
       <label for="email">Email address:</label>
       <input type="email" class="form-control" id="email" formControlName="email" required="true">
+      <span class="alert alert-danger" *ngIf="!formGroup.get('email')?.valid && formGroup.get('email')?.touched">
+        Please provide a valid email
+      </span>
     </div>
     <div class="form-group">
       <label for="password">Password:</label>
       <input type="password" class="form-control" id="password" formControlName="password">
+      <span class="alert alert-danger" role="alert" *ngIf="!formGroup.get('password')?.valid && formGroup.get('password')?.touched">
+        Please provide a valid password
+      </span>
     </div>
 
     <button type="submit" class="btn btn-primary" [disabled]="!formGroup.valid">Submit</button>
