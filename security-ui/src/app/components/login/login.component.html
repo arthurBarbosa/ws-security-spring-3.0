@@ -20,12 +20,13 @@
         <div class="login-failed" *ngIf='this.isError'>
           <p class="login-failed-text">E-mail/senha inválidos. Tente novamente.</p>
         </div>
-        <input type="submit" class="btn btn-primary" value="Entrar">
+        <input type="submit" class="btn btn-primary" value="Entrar" [disabled]="formGroup.invalid">
       </form>
     </div>
     <div class="col-md-6 order-md-1">
       <div class="col-12">
-        <img [src]="signIn" alt="entra no sistema" class="img-fluid">
+        <!-- <img [src]="signIn" alt="entra no sistema" class="img-fluid">-->
+        <img *ngFor="let imagem of imagens" [src]="imagem.url" [@banner]="imagem.estado" alt="entrar no sistema" class="img-fluid">
       </div>
       <div class="col-12" id="link-container">
         <a routerLink="/user">Ainda não tenho cadastro</a>

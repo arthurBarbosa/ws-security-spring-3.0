@@ -55,7 +55,9 @@
     width: auto;
   }
 }
-
+img {
+  height: 259px;
+}
 .col-md-6.order-md-1 {
   padding-top: 50px;
 }

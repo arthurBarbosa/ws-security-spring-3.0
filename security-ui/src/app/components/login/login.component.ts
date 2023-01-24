@@ -1,3 +1,4 @@
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { JsonPipe } from '@angular/common';
 import { Token } from '@angular/compiler';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
@@ -11,9 +12,29 @@ import { LoaderService } from 'src/app/shared/spinner/loader.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  animations: [
+    trigger('banner', [
+      state('escondido', style({
+        backgroundImage: '',
+        display: 'none',
+
+        opacity: 0
+      })),
+      state('visivel', style({
+        display: 'visible',
+        opacity: 1
+      })),
+      transition('escondido <=> visivel', animate('1s ease-in'))
+    ])
+  ]
 })
 export class LoginComponent implements OnInit {
+  estado: string = 'visivel';
+  public imagens: any = [
+    { estado: 'visivel', url: '/assets/sign_in.svg' },
+    { estado: 'escondido', url: '/assets/hello.svg' }
+  ]
   formGroup: FormGroup;
   storage: Storage;
   isError: boolean = false;
@@ -40,6 +61,27 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    setTimeout(() => this.logicaRotacao(), 3000)
+  }
+
+  logicaRotacao(): void {
+    console.log(this.imagens)
+
+    // auxilia exibição imagem seguinte
+    let idx: number = 0;
+
+    // ocultar imagem
+    for (let i: number = 0; i <= 2; i++) {
+      if (this.imagens[i].estado === 'visivel') {
+        this.imagens[i].estado = 'escondido'
+        idx = i === 1 ? 0 : i + 1;
+        break
+      }
+    }
+    // exibir proxima imagem
+    this.imagens[idx].estado = 'visivel';
+    setTimeout(() => this.logicaRotacao(), 3000)
   }
 
   login() {
