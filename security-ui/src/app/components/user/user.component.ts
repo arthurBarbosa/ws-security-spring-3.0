@@ -10,7 +10,8 @@ import { UserService } from './user.service';
 export class UserComponent implements OnInit {
 
   formGroup: FormGroup;
-  storage: Storage
+  storage: Storage;
+  public hello: string = '/assets/hello.svg';
 
   constructor(
     private userService: UserService,

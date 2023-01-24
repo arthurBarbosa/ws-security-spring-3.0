@@ -1,36 +1,49 @@
-<div class="container">
+<div class="container col-11 col-md-9" id="form-container">
+  <div class="row gx-5">
+    <div class="col-md-6">
+      <h2>Realize seu cadastro</h2>
+      <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="firstname" formControlName="firstname" placeholder="Digite seu primeiro nome">
+          <label for="firstname" class="form-label">Digite seu primeiro nome</label>
+          <span class="alert-custom" *ngIf="!formGroup.get('firstname')?.valid && formGroup.get('firstname')?.touched">
+            Por favor forneça um nome válido.
+          </span>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="lastname" formControlName="lastname" placeholder="Digite seu sobrenome">
+          <label for="lastname" class="form-label">Digite seu sobrenome</label>
+          <span class="alert-custom" *ngIf="!formGroup.get('lastname')?.valid && formGroup.get('lastname')?.touched">
+            Por favor forneça um sobrenome válido.
+          </span>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" id="email" formControlName="email" required="true" placeholder="Digite seu e-mail">
+          <label for="email" class="form-label">Digite seu e-mail</label>
+          <span class="alert-custom" *ngIf="!formGroup.get('email')?.valid && formGroup.get('email')?.touched">
+            Por favor forneça um e-mail válido.
+          </span>
+        </div>
 
-  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="firstname">Firstname:</label>
-      <input type="text" class="form-control" id="firstname" formControlName="firstname">
-      <span class="alert alert-danger" *ngIf="!formGroup.get('firstname')?.valid && formGroup.get('firstname')?.touched">
-        Please provide a valid firstname
-      </span>
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control" id="password" formControlName="password" placeholder="Digite sua senha">
+          <label for="password" class="form-label">Digite sua senha</label>
+          <span class="alert-custom" role="alert" *ngIf="!formGroup.get('password')?.valid && formGroup.get('password')?.touched">
+            Por favor forneça uma senha válida.
+          </span>
+        </div>
+        <input type="submit" class="btn btn-primary" [disabled]="!formGroup.valid" value="Cadastrar" />
+      </form>
     </div>
-    <div class="form-group">
-      <label for="lastname">Lastname:</label>
-      <input type="text" class="form-control" id="lastname" formControlName="lastname">
-      <span class="alert alert-danger" *ngIf="!formGroup.get('lastname')?.valid && formGroup.get('lastname')?.touched">
-        Please provide a valid lastname
-      </span>
+    <div class="col-md-6">
+      <div class="row align-items-center">
+        <div class="col-12">
+          <img [src]="hello" alt="hello" class="img-fluid">
+        </div>
+        <div class="col-12">
+          <a routerLink="/">Eu já tenho uma conta</a>
+        </div>
+      </div>
     </div>
-    <div class="form-group">
-      <label for="email">Email address:</label>
-      <input type="email" class="form-control" id="email" formControlName="email" required="true">
-      <span class="alert alert-danger" *ngIf="!formGroup.get('email')?.valid && formGroup.get('email')?.touched">
-        Please provide a valid email
-      </span>
-    </div>
-    <div class="form-group">
-      <label for="password">Password:</label>
-      <input type="password" class="form-control" id="password" formControlName="password">
-      <span class="alert alert-danger" role="alert" *ngIf="!formGroup.get('password')?.valid && formGroup.get('password')?.touched">
-        Please provide a valid password
-      </span>
-    </div>
-
-    <button type="submit" class="btn btn-primary" [disabled]="!formGroup.valid">Submit</button>
-  </form>
-
+  </div>
 </div>

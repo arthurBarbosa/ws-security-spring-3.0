@@ -47,6 +47,19 @@
   border-color: #6c63ff;
 }
 
+.btn.btn-primary {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .btn.btn-primary {
+    width: auto;
+  }
+}
+
+.col-md-6.order-md-1 {
+  padding-top: 50px;
+}
+
 .row.align-items-center {
   align-content: center;
   height: 100%;
@@ -61,4 +74,11 @@
 .alert-custom,
 .login-failed-text {
   color: red;
+}
+
+@media (min-width: 768px) {
+  #form-container {
+    margin: 50px auto;
+    padding: 40px;
+  }
 }

@@ -1,51 +1,17 @@
-<!--<form [formGroup]="formGroup" (ngSubmit)="login()">
-  <section>
-
-
-      <div class="container">
-      <div class="login-form">
-        <h1>Sign in</h1>
-        <div class="form-group">
-          <input type="text" formControlName="email" placeholder="Username">
-          <span class="alert alert-danger" role="alert" *ngIf="!formGroup.get('email')?.valid && formGroup.get('email')?.touched">
-            Please provide a valid email
-          </span>
-        </div>
-        <div class="form-group">
-          <input type="password" formControlName="password" type="password" name="password" placeholder="Password">
-          <span class="alert alert-danger" role="alert" *ngIf="!formGroup.get('password')?.valid && formGroup.get('password')?.touched">
-            Please provide a valid password
-          </span>
-        </div>
-        <button type="submit" [disabled]="!formGroup.valid">Login</button>
-        <div class="login-failed" *ngIf='this.isError'>
-          <p class="login-failed-text">Login Failed. Please check your credentials and try again.</p>
-        </div>
-        <a href="">Forget Password</a> <br>
-        <a routerLink="/user">Criar uma conta</a>
-      </div>
-    </div>
-
-  </section>
-
-</form>
-
--->
-
 <div class="container col-11 col-md-9" id="form-container">
   <div class="row align-items-center gx-5">
     <div class="col-md-6 order-md-2">
       <h2>Faça login para continuar</h2>
       <form [formGroup]="formGroup" (ngSubmit)="login()">
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="email" formControlName="email">
+          <input type="text" class="form-control" id="email" formControlName="email" placeholder="Digite o seu e-mail">
           <label for="email" class="form-label">Digite o seu e-mail</label>
           <span class="alert-custom alert-danger" role="alert" *ngIf="!formGroup.get('email')?.valid && formGroup.get('email')?.touched">
             Entre com um e-mail válido.
           </span>
         </div>
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="password" formControlName="password">
+          <input type="text" class="form-control" id="password" formControlName="password" placeholder="Digite o sua senha">
           <label for="password" class="form-label">Digite a sua senha</label>
           <span class="alert-custom alert-danger" role="alert" *ngIf="!formGroup.get('password')?.valid && formGroup.get('password')?.touched">
             Entre uma senha válida.
